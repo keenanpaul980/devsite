@@ -1,14 +1,20 @@
 //require modules
-const express = require('express');
-const mongoose = require('mongoose');
-
-//require API routes
-const users = require('./routes/api/users');
-const profile = require('./routes/api/profile');
-const posts = require('./routes/api/posts');
+const express = require('express'); // express module
+const mongoose = require('mongoose'); // mongoose module to connect to db
+const bodyParser = require('body-parser'); // body parser for json files
 
 //assign express module to app var
 const app = express();
+
+//middleware for API
+const users = require('./routes/api/users');
+const profile = require('./routes/api/profile');
+const posts = require('./routes/api/posts');
+app.use(bodyParser.urlencoded({extende: false}));
+app.use(bodyParser.json());
+
+
+
 //DB config
 const db = require('./config/keys').mongoURI;
 
