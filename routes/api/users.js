@@ -2,7 +2,7 @@ const express = require('express'); // load express module
 const router = express.Router(); // for routing
 const gravatar = require('gravatar'); // for email and avatar
 const bcrypt = require('bcryptjs'); // for password encryption
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken'); //for tokens
 
 //load User model from ../../models/User
 const User = require('../../models/User');

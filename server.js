@@ -2,10 +2,16 @@
 const express = require('express'); // express module
 const mongoose = require('mongoose'); // mongoose module to connect to db
 const bodyParser = require('body-parser'); // body parser for json files
+const passport = require('passport'); // for login
 
 //assign express module to app var
 const app = express();
 
+//passport middleware
+app.use(passport.initialize());
+
+//passport config
+require('./config/passport')(passport);
 //middleware for API
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
